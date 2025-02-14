@@ -315,9 +315,11 @@ ul li {
 }
 
 
-/* Mission & Vision */
 .mission-vision {
     background-image: url(images/bg.jpg);
+    background-size: cover;  /* Ensures image covers the entire section */
+    background-position: center;
+    background-attachment: fixed; /* Adds a nice parallax effect */
     display: flex;
     font-size: 20px;
     justify-content: center;
@@ -328,23 +330,58 @@ ul li {
 }
 
 .box {
-    width: 70%;
+    width: 60%;  /* Slightly reduce width for better spacing */
     background: var(--snd-bg-color);
-    padding: 2rem;
+    padding: 2.5rem; /* Increase padding for better readability */
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Enhance shadow effect */
     text-align: center;
-    animation: floatEffect 4s ease-in-out infinite;
+    animation: floatEffect 5s ease-in-out infinite; /* Slightly slower animation */
+}
+
+/* Floating Effect Animation */
+@keyframes floatEffect {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1.5rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .mission-vision {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .box {
+        width: 80%;
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
     .mission-vision {
-        flex-direction: column;
-        align-items: center;
+        padding: 1.5rem;
     }
 
     .box {
-        width: 100%;
+        width: 90%;
+        font-size: 18px; /* Adjust text size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 95%;
+        padding: 1.5rem;
+        font-size: 16px; /* Further reduce font size for readability */
     }
 }
 /* services styling */
